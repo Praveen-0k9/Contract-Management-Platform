@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Dashboard = ({ onNavigate, onViewContract }) => {
     const [activeTab, setActiveTab] = useState('All');
 
-    const filters = ['All', 'Created', 'Approved', 'Sent', 'Signed', 'Locked'];
+    const filters = ['All', 'Created', 'Approved', 'Sent', 'Signed', 'Locked', 'Revoked'];
 
     const [contracts, setContracts] = useState([]);
 
@@ -32,6 +32,7 @@ const Dashboard = ({ onNavigate, onViewContract }) => {
             case 'Sent': return 'badge-purple';
             case 'Created': return 'badge-neutral';
             case 'Locked': return 'badge-gray';
+            case 'Revoked': return 'badge-danger';
             default: return 'badge-neutral';
         }
     };
