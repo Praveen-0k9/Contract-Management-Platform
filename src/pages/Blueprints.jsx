@@ -1,11 +1,22 @@
 import React from 'react';
 
 const Blueprints = ({ onNavigate }) => {
-    const blueprints = [
-        { id: 1, name: 'Standard Employment Contract', fields: 5, date: '1/15/2024' },
-        { id: 2, name: 'NDA Agreement', fields: 3, date: '2/10/2024' },
-        { id: 3, name: 'Service Agreement', fields: 4, date: '3/5/2024' },
-    ];
+    const [blueprints, setBlueprints] = React.useState([]);
+
+    React.useEffect(() => {
+        const stored = localStorage.getItem('blueprints');
+        if (stored) {
+            setBlueprints(JSON.parse(stored));
+        } else {
+            const defaults = [
+                { id: 1, name: 'Standard Employment Contract', fields: 5, date: '1/15/2024' },
+                { id: 2, name: 'NDA Agreement', fields: 3, date: '2/10/2024' },
+                { id: 3, name: 'Service Agreement', fields: 4, date: '3/5/2024' },
+            ];
+            setBlueprints(defaults);
+            localStorage.setItem('blueprints', JSON.stringify(defaults));
+        }
+    }, []);
 
     return (
         <div className="page-container">
