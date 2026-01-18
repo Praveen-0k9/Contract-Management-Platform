@@ -1,22 +1,27 @@
 # Contract Management Platform
 
-A robust, frontend-based Contract Management Platform developed with React and Vite. This application handles the complete lifecycle of contracts—from blueprint creation to final signing or revocation—leveraging local storage for persistence.
+A frontend-based contract management platform that allows users to create reusable contract blueprints, generate contracts from those templates, and manage contracts through a controlled lifecycle.
+
+This project is focused on frontend architecture, usability, and state handling. No backend services are used.
 
 ## 🚀 Setup Instructions
 
 1.  **Clone the Repository**
     ```bash
-    git clone <repository-url>
-    cd "Contract Management Platform"
-    ```
+    git clone https://github.com/Praveen-0k9/Contract-Management-Platform.git
 
-2.  **Install Dependencies**
+    ```
+2.  **Navigate to the Project Directory**
+    ```bash
+    cd Contract-Management-Platform
+    ```
+3.  **Install Dependencies**
     Ensure you have Node.js installed, then run:
     ```bash
     npm install
     ```
 
-3.  **Start Development Server**
+4.  **Start Development Server**
     Launch the application locally:
     ```bash
     npm run dev
@@ -37,10 +42,6 @@ A robust, frontend-based Contract Management Platform developed with React and V
 -   **Modular Component Structure**: separated into `pages` (logic-heavy views) and `components` (reusable UI shells), ensuring separation of concerns.
 -   **State-Based Routing**: Implements a custom, lightweight router using React state (`currentScreen`) to manage navigation without the overhead of `react-router-dom`.
 -   **Linear Lifecycle Management**: Logic is centralized in `ContractDetails.jsx` to enforce strict status transitions (`Created` → `Approved` → `Sent` → ...).
-
-### Design Philosophy
--   **Visual Hierarchy**: Uses a clear typography scale (Bold Headers vs. Semi-Bold Data) to make information scannable.
--   **Feedback Loops**: Interactive elements provide immediate feedback (hover states, modal confirmations, disabled buttons) to guide user behavior.
 
 ## 🧩 Assumptions and Limitations
 
