@@ -1,58 +1,54 @@
 # Contract Management Platform
 
-A robust, frontend-based Contract Management Platform built with React and Vite. This application handles the full lifecycle of contracts—from blueprint creation to final signing or revocation—with persistent local storage.
+A robust, frontend-based Contract Management Platform developed with React and Vite. This application handles the complete lifecycle of contracts—from blueprint creation to final signing or revocation—leveraging local storage for persistence.
 
-## 🚀 Features
+## 🚀 Setup Instructions
 
-### 1. Contract Lifecycle Management
--   **Linear Workflow**: Enforces a strict status progression:
-    `Created` → `Approved` → `Sent` → `Signed` → `Locked`
--   **Revocation Flow**: Contracts can be revoked at any stage via a secure confirmation modal, transitioning them to a permanent `Revoked` state.
--   **Locked State**: Signed/Locked contracts are immutable to ensure integrity.
+1.  **Clone the Repository**
+    ```bash
+    git clone <repository-url>
+    cd "Contract Management Platform"
+    ```
 
-### 2. Dynamic Blueprint Creation
--   **Visual Builder**: Create reusable templates (`Blueprints`) by adding fields from a palette.
--   **Field Types**: Supports Text, Date, Signature, and Checkbox inputs.
--   **Persistence**: Blueprints are saved locally and used to generate new contracts.
-
-### 3. Contract Generation & Editing
--   **Inheritance**: New contracts automatically inherit fields from their selected blueprint.
--   **Interactive Editing**:
-    -   "Edit Fields" mode allows filling in contract details.
-    -   Interactive checkboxes, date pickers, and text inputs.
-    -   Data is saved locally and persists across sessions.
-
-### 4. Interactive Dashboard
--   **Status Filtering**: Filter contracts by active status (Active, Signed, Revoked, etc.).
--   **Visual Badges**: Color-coded status indicators (e.g., Red for Revoked, Green for Signed).
--   **Actionable**: Quick "View" access to contract details.
-
-## 🛠 Tech Stack & Architecture
-
--   **React + Vite**: For a high-performance, modern development experience.
--   **Zero-Dependency Styling**: Custom **CSS variables** and utility classes (no external UI libraries) to ensure maximum stability and clean code.
--   **Local Persistence**: All data (Blueprints, Contracts, Field Data) is stored in the browser's `localStorage`, simulating a real backend.
--   **Custom Router**: A lightweight, state-based router for instant, flicker-free navigation.
-
-## 📦 Setup & Run
-
-1.  **Install**
+2.  **Install Dependencies**
+    Ensure you have Node.js installed, then run:
     ```bash
     npm install
     ```
 
-2.  **Run**
+3.  **Start Development Server**
+    Launch the application locally:
     ```bash
     npm run dev
     ```
-    Open `http://localhost:5173` in your browser.
+    The app will be available at `http://localhost:5173`.
 
-## 📂 Project Structure
+## 🏗 Architecture and Design Decisions
 
--   `src/components`: Reusable UI elements (Layout, Icons).
--   `src/pages`:
-    -   `Dashboard.jsx`: Main table view with filters.
-    -   `CreateBlueprint.jsx`: Drag-and-drop style builder logic.
-    -   `CreateContract.jsx`: Instantiation logic.
-    -   `ContractDetails.jsx`: Complex state management for lifecycle, editing, and revocation.
--   `src/index.css`: Global design system (colors, typography, buttons).
+### Tech Stack
+-   **React + Vite**: Chosen for a high-performance, modern development experience with fast hot-reload capabilities.
+-   **Zero-Dependency Styling**: Utilizes **CSS variables** and native utility classes (`src/index.css`) instead of heavy UI libraries (like MUI or Bootstrap). This ensures:
+    -   Maximum stability and control.
+    -   No version conflicts.
+    -   Lightweight bundle size.
+-   **LocalStorage Persistence**: Replaces a traditional database backend to allow the application to be fully functional and persistent purely on the client-side.
+
+### Core Architecture
+-   **Modular Component Structure**: separated into `pages` (logic-heavy views) and `components` (reusable UI shells), ensuring separation of concerns.
+-   **State-Based Routing**: Implements a custom, lightweight router using React state (`currentScreen`) to manage navigation without the overhead of `react-router-dom`.
+-   **Linear Lifecycle Management**: Logic is centralized in `ContractDetails.jsx` to enforce strict status transitions (`Created` → `Approved` → `Sent` → ...).
+
+### Design Philosophy
+-   **Visual Hierarchy**: Uses a clear typography scale (Bold Headers vs. Semi-Bold Data) to make information scannable.
+-   **Feedback Loops**: Interactive elements provide immediate feedback (hover states, modal confirmations, disabled buttons) to guide user behavior.
+
+## 🧩 Assumptions and Limitations
+
+### Assumptions
+-   **Single User Environment**: The application is designed for a single user per browser session (data is stored in the browser).
+-   **Mock Data Seeding**: If no data exists, the application seeds a set of default contracts for demonstration purposes.
+
+### Limitations
+-   **No Backend Sync**: Data lives only in the browser's `localStorage`. Clearing the browser cache will wipe all created contracts and blueprints.
+-   **File Storage**: "Documents" are represented conceptually (metadata and fields) rather than as uploaded files (PDFs/Word docs) due to the client-side nature.
+-   **Concurrent Editing**: As a local-first app, there is no real-time collaboration support.
