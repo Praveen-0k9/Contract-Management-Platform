@@ -4,15 +4,57 @@ const Blueprints = ({ onNavigate }) => {
     const [blueprints, setBlueprints] = React.useState([]);
 
     React.useEffect(() => {
+        const defaults = [
+            {
+                id: 1,
+                name: 'Standard Employment Contract',
+                fields: 5,
+                date: '1/15/2024',
+                fieldConfig: [
+                    { id: 'f1', type: 'Text', label: 'Employee Name', placeholder: 'Enter employee name' },
+                    { id: 'f2', type: 'Text', label: 'Position', placeholder: 'Enter position' },
+                    { id: 'f3', type: 'Date', label: 'Start Date' },
+                    { id: 'f4', type: 'Checkbox', label: 'Benefits Eligible', placeholder: 'Check to confirm' },
+                    { id: 'f5', type: 'Signature', label: 'Employee Signature', placeholder: 'Signature (text representation)' }
+                ]
+            },
+            {
+                id: 2,
+                name: 'NDA Agreement',
+                fields: 3,
+                date: '2/10/2024',
+                fieldConfig: [
+                    { id: 'n1', type: 'Text', label: 'Disclosing Party', placeholder: 'Name of disclosing party' },
+                    { id: 'n2', type: 'Text', label: 'Receiving Party', placeholder: 'Name of receiving party' },
+                    { id: 'n3', type: 'Date', label: 'Effective Date' }
+                ]
+            },
+            {
+                id: 3,
+                name: 'Service Agreement',
+                fields: 4,
+                date: '3/5/2024',
+                fieldConfig: [
+                    { id: 's1', type: 'Text', label: 'Client Name', placeholder: 'Client legal name' },
+                    { id: 's2', type: 'Text', label: 'Service Description', placeholder: 'Brief description of services' },
+                    { id: 's3', type: 'Text', label: 'Rate', placeholder: 'e.g. $50/hr' },
+                    { id: 's4', type: 'Signature', label: 'Client Signature', placeholder: 'Sign here' }
+                ]
+            },
+        ];
+
         const stored = localStorage.getItem('blueprints');
         if (stored) {
-            setBlueprints(JSON.parse(stored));
+            const parsed = JSON.parse(stored);
+            // Check if data is stale (missing fieldConfig)
+            if (parsed.length > 0 && !parsed[0].fieldConfig) {
+                console.log('Migrating stale blueprint data...');
+                setBlueprints(defaults);
+                localStorage.setItem('blueprints', JSON.stringify(defaults));
+            } else {
+                setBlueprints(parsed);
+            }
         } else {
-            const defaults = [
-                { id: 1, name: 'Standard Employment Contract', fields: 5, date: '1/15/2024' },
-                { id: 2, name: 'NDA Agreement', fields: 3, date: '2/10/2024' },
-                { id: 3, name: 'Service Agreement', fields: 4, date: '3/5/2024' },
-            ];
             setBlueprints(defaults);
             localStorage.setItem('blueprints', JSON.stringify(defaults));
         }

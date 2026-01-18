@@ -13,7 +13,7 @@ function App() {
       case 'dashboard': return <Dashboard />;
       case 'blueprints': return <Blueprints onNavigate={setCurrentScreen} />;
       case 'create-blueprint': return <CreateBlueprint onNavigate={setCurrentScreen} />;
-      case 'create': return <CreateContract />;
+      case 'create': return <CreateContract onNavigate={setCurrentScreen} />;
       default: return <Dashboard />;
     }
   };

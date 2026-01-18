@@ -36,6 +36,7 @@ const CreateBlueprint = ({ onNavigate }) => {
             id: Date.now(),
             name: name,
             fields: fields.length,
+            fieldConfig: fields, // Save the actual field definitions
             date: new Date().toLocaleDateString()
         };
 

@@ -5,14 +5,25 @@ const Dashboard = () => {
 
     const filters = ['All', 'Created', 'Approved', 'Sent', 'Signed', 'Locked'];
 
-    // Mock data as per screenshot
-    const contracts = [
-        { id: 1, name: 'Employment - John Doe', template: 'Standard Employment Contract', status: 'Signed', date: '1/10/2025' },
-        { id: 2, name: 'NDA - Acme Corp', template: 'NDA Agreement', status: 'Approved', date: '1/12/2025' },
-        { id: 3, name: 'Service - Widget Inc', template: 'Service Agreement', status: 'Sent', date: '1/14/2025' },
-        { id: 4, name: 'Employment - Jane Smith', template: 'Standard Employment Contract', status: 'Created', date: '1/16/2025' },
-        { id: 5, name: 'NDA - Beta Solutions', template: 'NDA Agreement', status: 'Locked', date: '12/20/2024' },
-    ];
+    const [contracts, setContracts] = useState([]);
+
+    React.useEffect(() => {
+        const stored = localStorage.getItem('contracts');
+        if (stored) {
+            setContracts(JSON.parse(stored));
+        } else {
+            // Mock data as per screenshot (defaults)
+            const defaults = [
+                { id: 1, name: 'Employment - John Doe', template: 'Standard Employment Contract', status: 'Signed', date: '1/10/2025' },
+                { id: 2, name: 'NDA - Acme Corp', template: 'NDA Agreement', status: 'Approved', date: '1/12/2025' },
+                { id: 3, name: 'Service - Widget Inc', template: 'Service Agreement', status: 'Sent', date: '1/14/2025' },
+                { id: 4, name: 'Employment - Jane Smith', template: 'Standard Employment Contract', status: 'Created', date: '1/16/2025' },
+                { id: 5, name: 'NDA - Beta Solutions', template: 'NDA Agreement', status: 'Locked', date: '12/20/2024' },
+            ];
+            setContracts(defaults);
+            localStorage.setItem('contracts', JSON.stringify(defaults));
+        }
+    }, []);
 
     const getStatusClass = (status) => {
         switch (status) {
