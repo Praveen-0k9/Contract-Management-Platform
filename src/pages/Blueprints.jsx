@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Blueprints = () => {
+const Blueprints = ({ onNavigate }) => {
     const blueprints = [
         { id: 1, name: 'Standard Employment Contract', fields: 5, date: '1/15/2024' },
         { id: 2, name: 'NDA Agreement', fields: 3, date: '2/10/2024' },
@@ -11,11 +11,14 @@ const Blueprints = () => {
         <div className="page-container">
             <div className="page-header-row">
                 <div>
-                    <h1>Blueprints</h1>
+                    <h1 style={{ fontSize: '1.25rem' }}>Blueprints</h1>
                     <p>Manage contract templates</p>
                 </div>
-                <button className="btn-primary">
-                    + Create Blueprint
+                <button
+                    className="btn-dark-navy"
+                    onClick={() => onNavigate('create-blueprint')}
+                >
+                    <span style={{ marginRight: '8px' }}>+</span> Create Blueprint
                 </button>
             </div>
 

@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import Blueprints from './pages/Blueprints';
 import CreateContract from './pages/CreateContract';
+import CreateBlueprint from './pages/CreateBlueprint';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('dashboard');
@@ -10,7 +11,8 @@ function App() {
   const renderScreen = () => {
     switch (currentScreen) {
       case 'dashboard': return <Dashboard />;
-      case 'blueprints': return <Blueprints />;
+      case 'blueprints': return <Blueprints onNavigate={setCurrentScreen} />;
+      case 'create-blueprint': return <CreateBlueprint onNavigate={setCurrentScreen} />;
       case 'create': return <CreateContract />;
       default: return <Dashboard />;
     }

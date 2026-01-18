@@ -35,7 +35,7 @@ const CreateContract = () => {
                         className={`custom-select-trigger ${isOpen ? 'open' : ''}`}
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        <span className={!selectedBlueprint ? "text-gray-500 font-bold" : ""}>
+                        <span className={!selectedBlueprint ? "text-gray-400 font-bold" : ""}>
                             {selectedBlueprint || "Choose a blueprint template"}
                         </span>
                         <span className={`arrow ${isOpen ? 'open' : ''}`}>▼</span>
