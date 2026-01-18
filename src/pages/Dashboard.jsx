@@ -25,6 +25,10 @@ const Dashboard = () => {
         }
     };
 
+    const filteredContracts = activeTab === 'All'
+        ? contracts
+        : contracts.filter(contract => contract.status === activeTab);
+
     return (
         <div className="dashboard-container">
             <div className="page-header">
@@ -56,7 +60,7 @@ const Dashboard = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {contracts.map((contract) => (
+                        {filteredContracts.map((contract) => (
                             <tr key={contract.id}>
                                 <td>
                                     <span className="font-medium text-main">{contract.name}</span>

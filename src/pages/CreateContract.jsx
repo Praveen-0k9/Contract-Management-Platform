@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CreateContract = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedBlueprint, setSelectedBlueprint] = useState('');
+
+    const blueprints = [
+        'Standard Employment Contract',
+        'NDA Agreement',
+        'Service Agreement'
+    ];
+
     return (
-        <div className="page-container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div className="dashboard-container">
             <div className="page-header">
                 <h1>Create Contract</h1>
                 <p>Generate a new contract from a blueprint</p>
@@ -18,20 +27,43 @@ const CreateContract = () => {
                     />
                 </div>
 
-                <div className="form-group">
+                <div className="form-group" style={{ position: 'relative' }}>
                     <label>Select Blueprint</label>
-                    <select className="select-field">
-                        <option value="">Choose a blueprint template</option>
-                        <option value="1">Standard Employment Contract</option>
-                        <option value="2">NDA Agreement</option>
-                        <option value="3">Service Agreement</option>
-                    </select>
+
+                    {/* Custom Dropdown Trigger */}
+                    <div
+                        className={`custom-select-trigger ${isOpen ? 'open' : ''}`}
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <span className={!selectedBlueprint ? "text-gray-500 font-bold" : ""}>
+                            {selectedBlueprint || "Choose a blueprint template"}
+                        </span>
+                        <span className={`arrow ${isOpen ? 'open' : ''}`}>▼</span>
+                    </div>
+
+                    {/* Custom Dropdown Options */}
+                    {isOpen && (
+                        <div className="custom-options">
+                            {blueprints.map((option) => (
+                                <div
+                                    key={option}
+                                    className={`custom-option ${selectedBlueprint === option ? 'selected' : ''}`}
+                                    onClick={() => {
+                                        setSelectedBlueprint(option);
+                                        setIsOpen(false);
+                                    }}
+                                >
+                                    {option}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="form-actions-row">
                     <button className="btn-primary">Create Contract</button>
                     <button className="btn-secondary">Save Draft</button>
-                    <button className="btn-text" style={{ marginLeft: 'auto' }}>Cancel</button>
+                    <button className="btn-text">Cancel</button>
                 </div>
             </div>
         </div>

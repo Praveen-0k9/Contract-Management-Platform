@@ -23,10 +23,9 @@ const Blueprints = () => {
                 <table className="data-table">
                     <thead>
                         <tr>
-                            <th>Blueprint Name</th>
-                            <th>Fields</th>
-                            <th>Created Date</th>
-                            <th align="right">Actions</th>
+                            <th style={{ width: '50%' }}>Blueprint Name</th>
+                            <th style={{ width: '25%' }}>Fields</th>
+                            <th style={{ width: '25%' }}>Created Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,9 +42,6 @@ const Blueprints = () => {
                                 </td>
                                 <td>
                                     {blueprint.date}
-                                </td>
-                                <td align="right">
-                                    <button className="text-btn">Edit</button>
                                 </td>
                             </tr>
                         ))}

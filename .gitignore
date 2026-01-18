@@ -143,3 +143,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 >>>>>>> 34969ab9691e3a9b4137579e61b11ee94a63b18f
+
+# Exclude legacy UI folder
+Contract Management Platform UI/
