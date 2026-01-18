@@ -64,11 +64,11 @@ const Dashboard = ({ onNavigate, onViewContract }) => {
                 <table className="data-table">
                     <thead>
                         <tr>
-                            <th style={{ width: '30%' }}>Contract Name</th>
-                            <th style={{ width: '25%' }}>Blueprint Name</th>
-                            <th style={{ width: '15%' }}>Status</th>
-                            <th style={{ width: '15%' }}>Created Date</th>
-                            <th style={{ width: '15%' }}>Actions</th>
+                            <th style={{ width: '30%', fontWeight: 'bold' }}>Contract Name</th>
+                            <th style={{ width: '25%', fontWeight: 'bold' }}>Blueprint Name</th>
+                            <th style={{ width: '15%', fontWeight: 'bold' }}>Status</th>
+                            <th style={{ width: '15%', fontWeight: 'bold' }}>Created Date</th>
+                            <th style={{ width: '15%', fontWeight: 'bold' }}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,7 +78,7 @@ const Dashboard = ({ onNavigate, onViewContract }) => {
                                     <span className="font-medium text-main">{contract.name}</span>
                                 </td>
                                 <td>
-                                    <span className="text-secondary">{contract.template}</span>
+                                    <span className="text-secondary" style={{ fontWeight: 600 }}>{contract.template}</span>
                                 </td>
                                 <td>
                                     <span className={`badge ${getStatusClass(contract.status)}`}>
@@ -86,14 +86,19 @@ const Dashboard = ({ onNavigate, onViewContract }) => {
                                     </span>
                                 </td>
                                 <td>
-                                    <span className="text-secondary">{contract.date}</span>
+                                    <span className="text-secondary" style={{ fontWeight: 600 }}>{contract.date}</span>
                                 </td>
                                 <td>
                                     <button
                                         className="icon-btn"
                                         onClick={() => onViewContract(contract)}
+                                        style={{ fontWeight: 600 }}
                                     >
-                                        <span className="icon-eye">👁</span> View
+                                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ strokeWidth: 2 }}>
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                        View
                                     </button>
                                 </td>
                             </tr>

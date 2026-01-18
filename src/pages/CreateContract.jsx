@@ -182,9 +182,20 @@ const CreateContract = ({ onNavigate }) => {
                 )}
 
                 <div className="form-actions-row">
-                    <button className="btn-primary" style={{ background: '#111827' }} onClick={handleCreate}>Create Contract</button>
-                    <button className="btn-secondary">Save Draft</button>
-                    <button className="btn-text">Cancel</button>
+                    <button
+                        className="btn-primary"
+                        style={{
+                            background: selectedBlueprint ? '#000000' : 'rgba(0, 0, 0, 0.4)',
+                            color: 'white',
+                            fontWeight: 'bold',
+                            cursor: selectedBlueprint ? 'pointer' : 'not-allowed'
+                        }}
+                        onClick={handleCreate}
+                        disabled={!selectedBlueprint}
+                    >
+                        Create Contract
+                    </button>
+                    <button className="btn-text" style={{ fontWeight: 'bold' }}>Cancel</button>
                 </div>
             </div>
         </div>

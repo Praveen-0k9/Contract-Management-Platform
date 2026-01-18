@@ -13,11 +13,8 @@ const ContractDetails = ({ contract: initialContract, onNavigate }) => {
     const [showRevokeModal, setShowRevokeModal] = useState(false); // New state for modal
 
     useEffect(() => {
-        // ... (existing useEffect)
         setContract(initialContract);
     }, [initialContract]);
-
-    // ... (rest of useEffects and handlers)
 
     const confirmRevoke = () => {
         const storedContracts = localStorage.getItem('contracts');
@@ -33,11 +30,6 @@ const ContractDetails = ({ contract: initialContract, onNavigate }) => {
         }
     };
 
-    // Removed the window.confirm wrapper from here, as it's now handled by the UI button triggering the modal state
-    const handleRevoke = () => {
-        // This function is effectively replaced by direct setShowRevokeModal(true) in the JSX
-    };
-
     useEffect(() => {
         // Find the blueprint associated with this contract to display fields
         if (contract) {
@@ -51,15 +43,8 @@ const ContractDetails = ({ contract: initialContract, onNavigate }) => {
             if (contract.fields) {
                 setFormData(contract.fields);
             } else {
-                // Determine logic for defaults if not present
-                // This mimics the previous display logic for initial population
-                const defaults = {};
-                // If we had the blueprint here available immediately we could map defaults
-                // For now, we rely on the component render to show defaults if empty
-                // But better to initialize empty and let the user fill or map from existing
-                // Since our mock logic was hardcoded in render, we can't easily auto-populate 'John Doe'
-                // unless we also map that here.
-                // Let's rely on the user filling it out for now, or defaulting to empty string.
+                // Initialize empty defaults if no fields exist, to be filled by user
+
                 setFormData(contract.fields || {});
             }
         }
@@ -149,8 +134,8 @@ const ContractDetails = ({ contract: initialContract, onNavigate }) => {
                 </svg>
             );
             case 'Sent': return (
-                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style={{ transform: 'rotate(-45deg)', marginBottom: '2px' }}>
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                 </svg>
             );
             case 'Signed': return (
@@ -198,8 +183,12 @@ const ContractDetails = ({ contract: initialContract, onNavigate }) => {
                 <button
                     onClick={() => onNavigate('dashboard')}
                     className="btn-back"
+                    style={{ gap: '0.75rem' }}
                 >
-                    <span>←</span> Back to Dashboard
+                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ strokeWidth: 2 }}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back to Dashboard
                 </button>
             </div>
 

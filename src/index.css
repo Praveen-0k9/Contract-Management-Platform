@@ -90,7 +90,6 @@ body {
 
 .sidebar-btn:hover {
   background-color: #f9fafb;
-  /* Lighter hover color (gray-50) */
   color: #111827;
 }
 
@@ -279,7 +278,6 @@ body {
 
 .page-header h1 {
   font-size: 1.45rem;
-  /* Adjusted intermediate size */
   font-weight: 700;
   color: var(--text-main);
 }
@@ -302,18 +300,14 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid var(--border);
-  /* Visible border for all */
   cursor: pointer;
   background-color: white;
-  /* White bg for inactive */
   color: var(--text-main);
-  /* Darker text */
   transition: all 0.2s;
 }
 
 .filter-btn:hover {
   background-color: #e5e7eb;
-  /* Darker hovering gray */
   border-color: #d1d5db;
 }
 
@@ -342,10 +336,9 @@ body {
   padding: 1rem 1.5rem;
   background-color: white;
   border-bottom: 1px solid var(--border);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #111827;
-  /* Darker than muted for clarity */
 }
 
 .data-table td {
@@ -417,13 +410,9 @@ body {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  /* Increased button spacing */
   margin-top: 2.5rem;
-  /* Increased space above line */
   padding-top: 1.5rem;
-  /* Increased space below line */
   border-top: 1px solid #e5e7eb;
-  /* Separator line */
 }
 
 .icon-btn {
@@ -442,7 +431,7 @@ body {
 }
 
 .icon-btn:hover {
-  background-color: #f3f4f6;
+  background-color: #e5e7eb;
   color: #111827;
 }
 
@@ -497,34 +486,25 @@ body {
 .select-field {
   width: 100%;
   padding: 0.5rem 0.75rem;
-  /* Reduced padding */
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  /* Slightly tighter radius */
   background: #f3f4f6;
-  /* Gray-100 for better visibility */
   font-size: 0.875rem;
-  /* Standard smaller text */
   font-weight: 500;
-  /* Made text bolder */
   color: #1f2937;
   outline: none;
   transition: all 0.2s;
 }
 
-/* ... existing styles ... */
 
 .custom-select-trigger {
   width: 100%;
   padding: 0.35rem 0.75rem;
-  /* Reduced from 0.5rem */
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   background: #f3f4f6;
-  /* Gray-100 for better visibility */
   font-size: 0.875rem;
   font-weight: 500;
-  /* Made text bolder */
   color: #1f2937;
   cursor: pointer;
   display: flex;
@@ -570,7 +550,6 @@ body {
 
 .custom-option {
   padding: 0.5rem 0.75rem;
-  /* Reduced padding for compactness */
   font-size: 0.875rem;
   color: #374151;
   cursor: pointer;
@@ -579,7 +558,6 @@ body {
 
 .custom-option:hover {
   background-color: #f3f4f6;
-  /* Hover color from screenshot */
 }
 
 .custom-option.selected {
@@ -591,7 +569,6 @@ body {
 /* Updated Button Styles */
 .btn-primary {
   background: #6b7280;
-  /* Muted dark gray as per screenshot */
   color: white;
   padding: 0.625rem 1.25rem;
   border-radius: 8px;
@@ -626,7 +603,6 @@ body {
 .btn-text {
   background: none;
   border: 1px solid #e5e7eb;
-  /* Cancel often has a border in this style too */
   color: #374151;
   padding: 0.625rem 1.25rem;
   border-radius: 8px;
@@ -667,7 +643,6 @@ body {
 /* Blueprints Page Specific Button */
 .btn-dark-navy {
   background: #030213;
-  /* User requested specific color */
   color: white;
   padding: 0.625rem 1.25rem;
   border-radius: 8px;
@@ -680,7 +655,6 @@ body {
 
 .btn-dark-navy:hover {
   background: #1a192b;
-  /* Slightly lighter on hover */
 }
 
 /* Create Blueprint Styles */
@@ -732,19 +706,14 @@ body {
 .canvas-empty-state {
   height: 100%;
   border: 2px dashed #cfd0d5;
-  /* Lighter gray border */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f9fafb;
-  /* Switched to gray */
   color: #9ca3af;
   font-size: 0.875rem;
   min-height: 300px;
-  /* Reduced specific size as requested (was 400px) */
-  min-height: 300px;
-  /* Reduced specific size as requested (was 400px) */
 }
 
 /* Rendered Canvas Items */
@@ -753,7 +722,6 @@ body {
   flex-direction: column;
   gap: 1rem;
   border: 2px dashed #cfd0d5;
-  /* Keep the border container even when items exist */
   border-radius: 8px;
   padding: 1.5rem;
   min-height: 300px;
@@ -804,7 +772,6 @@ body {
   width: 100%;
   padding: 0.5rem 0.75rem;
   background: #f9fafb;
-  /* Light gray input */
   border: none;
   border-radius: 6px;
   font-size: 0.875rem;
@@ -839,8 +806,6 @@ body {
 
 .remove-field-btn:hover {
   background-color: #f3f4f6;
-  /* Light gray box on hover */
   color: #111827;
-  /* Darker text */
   text-decoration: none;
 }

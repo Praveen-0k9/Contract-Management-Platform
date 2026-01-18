@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient background -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background rounded square -->
+  <rect width="64" height="64" rx="12" fill="url(#grad)"/>
+  
+  <!-- Document with folded corner -->
+  <path d="M18 14 L18 46 C18 47.1 18.9 48 20 48 L44 48 C45.1 48 46 47.1 46 46 L46 22 L38 14 Z" fill="white"/>
+  <path d="M38 14 L38 22 L46 22 Z" fill="#E0E7FF"/>
+  
+  <!-- Text lines -->
+  <line x1="23" y1="26" x2="36" y2="26" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="31" x2="38" y2="31" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  <line x1="23" y1="36" x2="34" y2="36" stroke="#6366F1" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Checkmark badge -->
+  <circle cx="44" cy="42" r="8" fill="#10B981"/>
+  <path d="M41 42 L43 44 L47 40" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
