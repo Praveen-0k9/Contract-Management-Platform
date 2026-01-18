@@ -628,9 +628,31 @@ body {
 }
 
 .btn-text:hover {
-  background: #fef2f2;
-  border-color: #fee2e2;
-  color: #ef4444;
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.btn-back:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
 }
 
 /* Blueprints Page Specific Button */

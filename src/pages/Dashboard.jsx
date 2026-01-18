@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Dashboard = () => {
+const Dashboard = ({ onNavigate, onViewContract }) => {
     const [activeTab, setActiveTab] = useState('All');
 
     const filters = ['All', 'Created', 'Approved', 'Sent', 'Signed', 'Locked'];
@@ -88,7 +88,10 @@ const Dashboard = () => {
                                     <span className="text-secondary">{contract.date}</span>
                                 </td>
                                 <td>
-                                    <button className="icon-btn">
+                                    <button
+                                        className="icon-btn"
+                                        onClick={() => onViewContract(contract)}
+                                    >
                                         <span className="icon-eye">👁</span> View
                                     </button>
                                 </td>
